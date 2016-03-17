@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" ng-app="dashboardApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>QuickTickets Dashboard</title>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="polymer/elements.html">
+</head>
+
+<body>
+  <paper-drawer-panel>
+    <paper-header-panel drawer>
+      <paper-toolbar id="drawerToolbar">
+        <span class="paper-font-title">
+                QuickTickets <strong>Dashboard</strong>
+              </span>
+      </paper-toolbar>
+      <div class="profile">
+        <img src="img/profile-pic.jpg" class="profile-image">
+        <paper-menu-button>
+          <span class="dropdown-trigger profile-name">
+            <span>George Orwell <iron-icon icon="icons:arrow-drop-down"></iron-icon></span>
+          </span>
+          <paper-menu class="dropdown-content profile-settings">
+            <paper-item>Edit Profile</paper-item>
+            <paper-item>Preferences</paper-item>
+            <paper-item>Sign out</paper-item>
+          </paper-menu>
+        </paper-menu-button>
+      </div>
+      <paper-menu class="list" attr-for-selected="data-route" selected="0">
+        <a href="#/dashboard">
+          <iron-icon icon="home"></iron-icon>
+          <span>Dashboard</span>
+        </a>
+        <a href="#/sales">
+          <iron-icon icon="icons:trending-up"></iron-icon>
+          <span>Sales</span>
+        </a>
+        <a href="#/transactions">
+          <iron-icon icon="icons:payment"></iron-icon>
+          <span>Transactions</span>
+        </a>
+        <a href="#/reports">
+          <iron-icon icon="icons:card-travel"></iron-icon>
+          <span>Reports</span>
+        </a>
+        <a href="#/schedule">
+          <iron-icon icon="icons:date-range"></iron-icon>
+          <span>Schedule</span>
+        </a>
+      </paper-menu>
+    </paper-header-panel>
+    <paper-scroll-header-panel main>
+
+      <!--<paper-toolbar>
+
+              <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+              <span class="flex"></span>
+              <div class="flex title">Dashboard</div>
+
+          </paper-toolbar>-->
+
+      <div class="content">
+        <div ng-view class="view-frame widget-content" id="ng-main-view">
+          <paper-spinner active style="left:50%; top: 50%;"></paper-spinner>
+        </div>
+      </div>
+
+    </paper-scroll-header-panel>
+
+  </paper-drawer-panel>
+</body>
+
+</html>
